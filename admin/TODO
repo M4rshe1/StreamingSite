@@ -1,0 +1,10 @@
+Admin Sides
+- Dashboard
+- Episodes
+- Series
+
+
+calculate views
+    viewCount / usersWatched / maxEpisodes = index
+
+    60 / 7 / 12 = 0.7143

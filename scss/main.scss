@@ -1,0 +1,246 @@
+$main-bg: rgb(17, 17, 17);
+$dd-padding: 3vw;
+$dd-width: 100vw - (2 * $dd-padding);
+$dd-el-padding: 0.6em;
+$dd-el-width: $dd-width - (2 * $dd-padding);
+$footer-height: 300px;
+$footer-bg: rgb(28, 28, 28);
+$header-height: 70px;
+$orange: rgb(255, 100, 16);
+$logo-size: 40px;
+$width: 60%;
+$header-bg: rgb(28, 28, 28);
+$hover-orange: #f8cb80;
+$user-pp-size: 40px;
+$dd-more-bg: rgb(24, 24, 24);
+$light-gray: rgb(55, 55, 55);
+$trans: all .4s ease-in-out;
+$cat-title-size: 22px;
+$eye-catcher-margin: 5px;
+$eye-catcher-margin-1400: 10px;
+$eye-catcher-margin-1080: 20px;
+$eye-catcher-height: 156px;
+$eye-catcher-height-1400: 230px;
+$eye-catcher-height-1080: 410px;
+
+@import "search";
+@import "header";
+@import "footer";
+@import "icons";
+@import "dropdown";
+@import "home";
+@import "admin";
+@import "error";
+@import "loginregister";
+@import "about";
+@import "account";
+@import "profile";
+@import "allseries";
+@import "stream";
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $header-bg;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $light-gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  //font-family: "Open Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &::selection {
+    background: $orange;
+    color: white;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: $trans;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+//  &:hover {
+//    box-shadow: $black-shadow;
+//
+//  }
+//img {
+//box-shadow: none;
+//  }
+}
+
+.tooltip {
+  transition: none !important;
+
+  * {
+    transition: none !important;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+html {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+
+  body {
+    background-color: $main-bg;
+    margin: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    main {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 1150px;
+      //background-color: rgba(255, 0, 0, 0.13);
+
+      .quick-search {
+        margin: 5px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .quick-search-el {
+          background-color: $orange;
+          margin: 3px;
+          min-height: 26px;
+          min-width: 27px;
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: $trans;
+          font-weight: bold;
+          color: white;
+          cursor: pointer;
+          color: white;
+          font-weight: bold;
+
+        }
+      }
+    }
+  }
+}
+
+.tooltip .tooltiptext {
+  top: 150%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; /* At the top of the tooltip */
+  left: 40%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent $dd-more-bg transparent;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: $dd-more-bg;
+  color: #fff;
+  text-align: center;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltiptext {
+  min-width: 140px;
+  border-radius: 5px;
+
+  a:hover {
+    background: $light-gray;
+
+    .user-dd-icon {
+      background: $light-gray !important;
+
+    }
+  }
+}
+
+//@media (max-width: 1400px) {
+//  main {
+//    width: 1000px !important;
+//  }
+//
+//}
+
+//@media screen and (max-width: 1080px) {
+//  .user, .quick-search {
+//    display: none !important;
+//  }
+//
+//  .logo-1, .logo-2 {
+//    font-size: $logo-size + 50px !important;
+//  }
+//
+//  .quick-search-el {
+//    font-size: 55px;
+//    min-height: 100px !important;
+//    min-width: 100px !important;
+//    border-radius: 10px !important;
+//    margin: 10px !important;
+//  }
+//
+//  main {
+//    width: 900px !important;
+//  }
+//
+//}
+
+
+

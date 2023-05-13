@@ -1,0 +1,50 @@
+FROM php:8.1-apache
+
+RUN mkdir /var/www/StreamingSite
+RUN chmod -R 755 /var/www/
+
+WORKDIR /var/www/StreamingSite
+
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+RUN apt-get update && apt-get upgrade -y
+
+
+
+
+# DEV Enviroment
+COPY dev_enviroment/serien.conf /etc/apache2/sites-available/serien.conf
+
+RUN mkdir "data"
+
+RUN rm /etc/apache2/apache2.conf
+COPY dev_enviroment/apache2.conf /etc/apache2/apache2.conf
+
+
+
+# Copy all Files
+COPY admin admin
+COPY api api
+COPY dist dist
+COPY error error
+COPY jsLibs jsLibs
+COPY login login
+COPY pages pages
+COPY register register
+COPY script script
+COPY stream stream
+COPY template template
+COPY user user
+COPY .htaccess .htaccess
+COPY index.php index.php
+
+# Change Database credits
+RUN rm api/database.json
+COPY dev_enviroment/database.dev.json api/database.json
+
+RUN a2dissite 000-default.conf
+RUN a2ensite serien.conf
+RUN a2enmod rewrite
+RUN service apache2 restart
+
+
+EXPOSE 80
